@@ -14,6 +14,7 @@ import { Card, CardActions, CardHeader, CardMedia } from '@material-ui/core';
 //Custom Components
 import PreviousTrips from './components/PreviousTrips.js';
 import NewTrip from './components/NewTrip.js';
+import Trip from './components/Trip/Trip.js'
 
 //Not used imports
 /*
@@ -57,6 +58,7 @@ function App() {
         <div>
           <Route exact path='/' component={PreviousTrips}/>
           <Route exact path='/newTrip' component={props => <NewTrip setTripData={setTripData}/>}/>
+          <Route exact path='/Trip' component={props => <Trip/>}/>
         </div>
         {/* <button onClick={handleClick}>See trip data</button> */}
       </div>
