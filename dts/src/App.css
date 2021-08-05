@@ -8,3 +8,27 @@
 .form-wrapper {
   margin-top: 48px;
 }
+.weather-container {
+  width: 90%;
+  margin: auto;
+  max-width: 880px;
+  /* margin auto makes it so both sides have the same margin, requires width specification  */
+}
+.weather-container h2 {
+  /* space means nesting (h2 of .weather-container) comma means chaining (h2 , x = h2 + x) */
+  margin: 0;
+}
+.flex-weathercards {
+  display: flex;
+  overflow-x: scroll;
+}
+.box {
+  border: 1px solid black;
+  /* 3 param: border thickness / style of border / color (no commas)  */
+}
+.box.icon {
+  /* styles class of box icon */
+  min-width: 150px;
+  height: auto;
+  margin: auto;
+}
