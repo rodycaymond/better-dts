@@ -7,12 +7,13 @@ const API_KEY = 'srQGRtICj2lmL14d6uNtthm1Sez7Fi2U';
 class Weather extends React.Component {
   constructor(props){
     super(props);
+    console.log(this.props.tripData)
     this.state = {
       weather: [],
-      city: 'copenhagen',
-      state: 'denmark',
-      startDate: '2021-8-15',
-      endDate: '2021-8-18'
+      city: this.props.tripData.destCity,
+      state: this.props.tripData.destState,
+      startDate: this.props.tripData.depDate,
+      endDate: this.props.tripData.returnDate
     }
     this.componentDidMount = this.componentDidMount.bind(this)
   }
@@ -27,23 +28,22 @@ class Weather extends React.Component {
         startDate: this.state.startDate,
         endDate: this.state.endDate
       })
-      console.log(this.state.weather.days)
     });
   }
   //get the api data
     //async in front makes function asyn
     //await is possible because of async function, it waits for the fetch to complete before it proceeds
-    
-      
+
+
 
   render(){
-  
+
     let listOfWeatherCards = this.state.weather.map((item,index)=>{
       console.log(item)
       return <WeatherCard info={item}/>
       //item is for the map function passing the object through, info is how the props are passed down (props.info.(...))
     });
-  
+
 
     return (
       <div className="weather-container">
@@ -72,9 +72,9 @@ function WeatherCard (props){
       {/* two class names, helps with css reference */}
       <p>{props.info.datetime.slice(5,props.info.datetime.length)}</p>
 
-  
+
       <img src={imgSrc} alt="icon depicting state of the weather"></img>
-      <p>{'High: '+props.info.tempmax+' | Low: '+props.info.tempmin}</p>
+      <p>{'High: '+Math.round(props.info.tempmax)+' | Low: '+Math.round(props.info.tempmin)}</p>
       <p>{props.info.conditions}</p>
       <p>Humidity: {props.info.humidity}%</p>
     </div>

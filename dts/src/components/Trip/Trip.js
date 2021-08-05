@@ -4,14 +4,17 @@ import Covid from './Covid.js'
 import {useState, useEffect} from 'react'
 
 
-const flightsURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2021-09-01?inboundpartialdate=2021-09-04"
+
 
 
 
 
 
 function Trip ({tripData}) {
+
   const [quotesData, setQuotesData] = useState({})
+
+  let flightsURL = `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${tripData.depAirport}-sky/${tripData.destAirport}-sky/${tripData.depDate}?inboundpartialdate=${tripData.returnDate}`
 
 
   useEffect(() => {
@@ -34,9 +37,9 @@ function Trip ({tripData}) {
 
   return (
     <div>
-      <p>Name Of Trip Maybe?</p>
+      <h2>{tripData.tripName}</h2>
       <Flights quotes={quotesData}/>
-      <Weather/>
+      <Weather tripData={tripData}/>
       <Covid/>
     </div>
   )

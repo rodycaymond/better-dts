@@ -11,12 +11,12 @@
 .weather-container {
   width: 90%;
   margin: auto;
-  max-width: 880px;
+  margin-top: 24px;
   /* margin auto makes it so both sides have the same margin, requires width specification  */
 }
 .weather-container h2 {
   /* space means nesting (h2 of .weather-container) comma means chaining (h2 , x = h2 + x) */
-  margin: 0;
+  margin-bottom: 10px;
 }
 .flex-weathercards {
   display: flex;
@@ -28,7 +28,7 @@
 }
 .box.icon {
   /* styles class of box icon */
-  min-width: 150px;
+  min-width: 175px;
   height: auto;
   margin: auto;
 }

@@ -6,9 +6,14 @@ import Card from '@material-ui/core/Card';
 
 
 function NewTrip ({setTripData}) {
-  const [destination, setDestination] = useState('');
+  const [tripName, setTripName] = useState('');
   const [depCity, setDepCity] = useState('');
-  const [startDate, setStartDate] = useState('');
+  const [depState, setDepState] = useState('');
+  const [depAirport, setDepAirport] = useState('');
+  const [depDate, setDepDate] = useState('');
+  const [destCity, setDestCity] = useState('');
+  const [destState, setDestState] = useState('');
+  const [destAirport, setDestAirport] = useState('');
   const [returnDate, setReturnDate] = useState('');
 //useState above is using hooks to hold information
 
@@ -16,12 +21,18 @@ function NewTrip ({setTripData}) {
 
   function handleClick(event){
     event.preventDefault()
-    //the preventDefault prevents refresh upon click
+    //the preventDefault prevents refresh upon click submit of form (single page app)
     let tripData = {
-    dest: destination,
-    depCity: depCity,
-    startDate: startDate,
-    returnDate: returnDate
+      tripName: tripName,
+      depCity: depCity,
+      depState: depState,
+      depAirport: depAirport,
+      depDate: depDate,
+      destCity: destCity,
+      destState: destState,
+      destAirport:destAirport,
+      returnDate: returnDate
+
     };
     setTripData(tripData);
     history.push('/Trip');
@@ -30,26 +41,18 @@ function NewTrip ({setTripData}) {
   return (
     <div className="form-wrapper">
       <form className='NewTripForm'>
-
-        <TextField variant='outlined' type='text' id='depLoc' label='Departure City' value={depLoc} onChange={(event) => setDepCity(event.target.value)}/>
-        <TextField variant='outlined' type='text' id='depLoc' label='Departure State' value={depLoc} onChange={(event) => setDepState(event.target.value)}/>
-        <TextField variant='outlined' type='text' id='depLoc' label='Departure Airport' value={depLoc} onChange={(event) => setDepAirport(event.target.value)}/>
-        <TextField variant='outlined' type='date' id='depLoc' label='Departure Date' value={depLoc} onChange={(event) => setDepDate(event.target.value)}/>
-        <TextField variant='outlined' type='text' id='depLoc' label='Destination City' value={depLoc} onChange={(event) => setDestCity(event.target.value)}/>
-        <TextField variant='outlined' type='text' id='depLoc' label='Destination State' value={depLoc} onChange={(event) => setDestState(event.target.value)}/>
-        <TextField variant='outlined' type='text' id='depLoc' label='Destination Airport' value={depLoc} onChange={(event) => setDestAirport(event.target.value)}/>
-        <TextField variant='outlined' type='date' id='depLoc' label='Return Date' value={depLoc} onChange={(event) => setDestDate(event.target.value)}/>
-
-        <label for='startDate'>Departure Date: </label>
-        <input type='date' id='startDate' name='startDate' value={startDate} onChange={(event) => setStartDate(event.target.value)}></input><br></br><br></br>
-
-        <label for='destination'>Destination Location: </label>
-        <input type='text' id='destination' name='destination' value={destination} onChange={(event) => setDestination(event.target.value)}></input>
-
-        <label for='returnDate'>Return Date: </label>
-        <input type='date' id='returnDate' name='returnDate' value={returnDate} onChange={(event) => setReturnDate(event.target.value)}></input><br></br><br></br>
-
-        <br></br>
+        <TextField required variant='outlined' type='text' id='depLoc' label='Trip Name' value={tripName} onChange={(event) => setTripName(event.target.value)}/>
+        <br/><br/>
+        <TextField required variant='outlined' type='text' id='depLoc' label='Departure City' value={depCity} onChange={(event) => setDepCity(event.target.value)}/>
+        <TextField required variant='outlined' type='text' id='depLoc' label='Departure State' value={depState} onChange={(event) => setDepState(event.target.value)}/>
+        <TextField required variant='outlined' type='text' id='depLoc' label='Departure Airport' value={depAirport} onChange={(event) => setDepAirport(event.target.value)}/>
+        <TextField required variant='outlined' InputLabelProps={{shrink: true}} type='date' id='depLoc' label='Departure Date' value={depDate} onChange={(event) => setDepDate(event.target.value)}/>
+        <br/><br/>
+        <TextField required variant='outlined' type='text' id='depLoc' label='Destination City' value={destCity} onChange={(event) => setDestCity(event.target.value)}/>
+        <TextField required variant='outlined' type='text' id='depLoc' label='Destination State' value={destState} onChange={(event) => setDestState(event.target.value)}/>
+        <TextField required variant='outlined' type='text' id='depLoc' label='Destination Airport' value={destAirport} onChange={(event) => setDestAirport(event.target.value)}/>
+        <TextField required variant='outlined' InputLabelProps={{shrink: true}} type='date' id='depLoc' label='Return Date' value={returnDate} onChange={(event) => setReturnDate(event.target.value)}/>
+        <br/><br/>
         <button type='submit' onClick={(event) => handleClick(event)}>Submit</button>
       </form>
     </div>

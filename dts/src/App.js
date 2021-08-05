@@ -3,7 +3,7 @@ import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 
 //React imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 //Material UI imports
@@ -19,9 +19,9 @@ import Trip from './components/Trip/Trip.js'
 //Not used imports
 /*
 import WindowModal from 'react-window-modal';
-
-
 */
+
+
 
 
 
@@ -32,6 +32,10 @@ function App() {
   const [previousTripsArray, setPreviousTrips] = useState([])
   const [tripData, setTripData] = useState()
   // setting state for previous trips
+
+  useEffect(() => {
+    setPreviousTrips(oldTrips => [...oldTrips, tripData])
+  }, [tripData])
 
   const useStyles = makeStyles({
     appbar:{display: 'flex', position: 'static', padding: '10px 0px',  justifyContent: 'space-around', flexDirection: 'row'},
@@ -56,9 +60,9 @@ function App() {
             </Link>
         </AppBar>
         <div>
-          <Route exact path='/' component={PreviousTrips}/>
+          <Route exact path='/' component={props => <PreviousTrips previousTrips={previousTripsArray}/>}/>
           <Route exact path='/newTrip' component={props => <NewTrip setTripData={setTripData}/>}/>
-          <Route exact path='/Trip' component={props => <Trip tripdata={tripData}/>}/>
+          <Route exact path='/Trip' component={props => <Trip tripData={tripData}/>}/>
         </div>
         {/* <button onClick={handleClick}>See trip data</button> */}
       </div>
