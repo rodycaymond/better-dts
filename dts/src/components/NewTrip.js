@@ -34,7 +34,11 @@ function NewTrip ({setTripData}) {
         <TextField variant='outlined' type='text' id='depLoc' label='Departure City' value={depLoc} onChange={(event) => setDepCity(event.target.value)}/>
         <TextField variant='outlined' type='text' id='depLoc' label='Departure State' value={depLoc} onChange={(event) => setDepState(event.target.value)}/>
         <TextField variant='outlined' type='text' id='depLoc' label='Departure Airport' value={depLoc} onChange={(event) => setDepAirport(event.target.value)}/>
-        <TextField variant='outlined' type='text' id='depLoc' label='Departure Airport' value={depLoc} onChange={(event) => setDepAirport(event.target.value)}/>
+        <TextField variant='outlined' type='date' id='depLoc' label='Departure Date' value={depLoc} onChange={(event) => setDepDate(event.target.value)}/>
+        <TextField variant='outlined' type='text' id='depLoc' label='Destination City' value={depLoc} onChange={(event) => setDestCity(event.target.value)}/>
+        <TextField variant='outlined' type='text' id='depLoc' label='Destination State' value={depLoc} onChange={(event) => setDestState(event.target.value)}/>
+        <TextField variant='outlined' type='text' id='depLoc' label='Destination Airport' value={depLoc} onChange={(event) => setDestAirport(event.target.value)}/>
+        <TextField variant='outlined' type='date' id='depLoc' label='Return Date' value={depLoc} onChange={(event) => setDestDate(event.target.value)}/>
 
         <label for='startDate'>Departure Date: </label>
         <input type='date' id='startDate' name='startDate' value={startDate} onChange={(event) => setStartDate(event.target.value)}></input><br></br><br></br>
