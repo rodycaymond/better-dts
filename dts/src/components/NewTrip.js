@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 
 
 function NewTrip ({setTripData}) {
   const [destination, setDestination] = useState('');
-  const [depLoc, setDepLoc] = useState('');
+  const [depCity, setDepCity] = useState('');
   const [startDate, setStartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
 //useState above is using hooks to hold information
@@ -18,7 +19,7 @@ function NewTrip ({setTripData}) {
     //the preventDefault prevents refresh upon click
     let tripData = {
     dest: destination,
-    depLoc: depLoc,
+    depCity: depCity,
     startDate: startDate,
     returnDate: returnDate
     };
@@ -29,8 +30,11 @@ function NewTrip ({setTripData}) {
   return (
     <div className="form-wrapper">
       <form className='NewTripForm'>
-        <label for='depLoc'>Departure Location: </label>
-        <input type='text' id='depLoc' name='depLoc' value={depLoc} onChange={(event) => setDepLoc(event.target.value)}></input>
+
+        <TextField variant='outlined' type='text' id='depLoc' label='Departure City' value={depLoc} onChange={(event) => setDepCity(event.target.value)}/>
+        <TextField variant='outlined' type='text' id='depLoc' label='Departure State' value={depLoc} onChange={(event) => setDepState(event.target.value)}/>
+        <TextField variant='outlined' type='text' id='depLoc' label='Departure Airport' value={depLoc} onChange={(event) => setDepAirport(event.target.value)}/>
+        <TextField variant='outlined' type='text' id='depLoc' label='Departure Airport' value={depLoc} onChange={(event) => setDepAirport(event.target.value)}/>
 
         <label for='startDate'>Departure Date: </label>
         <input type='date' id='startDate' name='startDate' value={startDate} onChange={(event) => setStartDate(event.target.value)}></input><br></br><br></br>

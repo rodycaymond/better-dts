@@ -58,7 +58,7 @@ function App() {
         <div>
           <Route exact path='/' component={PreviousTrips}/>
           <Route exact path='/newTrip' component={props => <NewTrip setTripData={setTripData}/>}/>
-          <Route exact path='/Trip' component={props => <Trip/>}/>
+          <Route exact path='/Trip' component={props => <Trip tripdata={tripData}/>}/>
         </div>
         {/* <button onClick={handleClick}>See trip data</button> */}
       </div>

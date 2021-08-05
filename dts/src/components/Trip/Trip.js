@@ -10,7 +10,7 @@ const flightsURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.co
 
 
 
-function Trip () {
+function Trip ({tripData}) {
   const [quotesData, setQuotesData] = useState({})
 
 
