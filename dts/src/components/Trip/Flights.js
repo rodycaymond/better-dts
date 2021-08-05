@@ -2,55 +2,98 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 
-function FlightQuote () {
+function FlightQuote ({quote, quotes}) {
+  let carrierID = quote.OutboundLeg.CarrierIds[0]
+  let carrierArray = quotes.Carriers
+  let placesArray = quotes.Places
+  let price = quote.MinPrice
+  let destID = quote.OutboundLeg.DestinationId
+  let originID = quote.OutboundLeg.OriginId
+  let carrierName = findCarrier (carrierID, carrierArray)
+  let originName = findOrigin(originID, placesArray)
+  let destName = findDestination(destID, placesArray)
+
+
+  function findCarrier (carrierID, carrierArr) {
+    let carrierObj = carrierArr.find(carrier => {
+      if (carrier.CarrierId === carrierID) {
+        return carrier
+      }
+    })
+    //console.log('This is carrierObj', carrierObj)
+    return carrierObj.Name
+  }
+
+  function findOrigin (originID, placesArr) {
+    let placesObj = placesArr.find(place => {
+      if (place.PlaceId === originID) {
+        return place
+      }
+    })
+    //console.log('This is placesObj', placesObj)
+    return placesObj.Name
+  }
+
+  function findDestination (destID, placesArr) {
+    let placesObj = placesArr.find(place => {
+      if (place.PlaceId === destID) {
+        return place
+      }
+    })
+    //console.log('This is carrierObj', carrierObj)
+    return placesObj.Name
+  }
+
+  console.log("Quote info: ",
+              "Quote: ", quote.QuoteID,
+              "CarrierID: ", carrierID,
+              "Price: ", price,
+              "Destination ID: ", destID,
+              "Origin ID: ", originID,
+              "Carrier Name: ", carrierName)
   return (
     <Grid container>
-      <Grid item xs={12} sm={3}><Paper>Quote ID</Paper></Grid>
-      <Grid item xs={12} sm={3}><Paper>Departure Airport</Paper></Grid>
-      <Grid item xs={12} sm={3}><Paper>Arrival Airport</Paper></Grid>
-      <Grid item xs={12} sm={3}><Paper>Price</Paper></Grid>
+      <Grid item xs={12} sm={3}><Paper>{carrierName}</Paper></Grid>
+      <Grid item xs={12} sm={3}><Paper>{price}</Paper></Grid>
+      <Grid item xs={12} sm={3}><Paper>{originName}</Paper></Grid>
+      <Grid item xs={12} sm={3}><Paper>{destName}</Paper></Grid>
     </Grid>
   )
 }
 
-function Flights () {
+//need to destructure data
+function Flights ({quotes}) {
+  console.log('This is inside of Flights: ', quotes)
+  let quotesArr = quotes.Quotes //array of quotes
+
+  let mapFlightQuotes = (quotesArr) => {
+    if (quotesArr === undefined) {
+      return <p>Loading</p>
+    } else {
+      return (
+        quotesArr.map( (quote, index) => {
+          //console.log("Maping Quotes Num", index, 'Quote info: ', quote)
+          return (
+            <Grid item xs={12} sm={12}>
+              <FlightQuote quote={quote} quotes={quotes}/>
+            </Grid>)
+        })
+      )
+    }
+  }
+
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={12}>
         <Paper>Departure</Paper>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <Paper>Return</Paper>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <FlightQuote/>
-      </Grid>
-       <Grid item xs={12} sm={6}>
-        <FlightQuote/>
-      </Grid>
+
+      {
+        mapFlightQuotes(quotesArr)
+      }
+
     </Grid>
   )
 }
 
 export default Flights;
-/*
-departure airport: ex JFK-sky
-arrival airport: ex: SFO-sky
-
-
-Example Fetch Code
-
-fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2021-09-01?inboundpartialdate=2021-09-04", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "06f4486042msheba41241ae42587p15a9e9jsn120b62a31903",
-		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-});
-*/
