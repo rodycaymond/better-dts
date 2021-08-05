@@ -85,7 +85,13 @@ function Flights ({quotes}) {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={12}>
-        <Paper>Departure</Paper>
+        <Paper>Flight Options</Paper>
+      </Grid>
+      <Grid container>
+        <Grid item xs={12} sm={3}><Paper>Carrier</Paper></Grid>
+        <Grid item xs={12} sm={3}><Paper>Price USD</Paper></Grid>
+        <Grid item xs={12} sm={3}><Paper>Departure</Paper></Grid>
+        <Grid item xs={12} sm={3}><Paper>Destination</Paper></Grid>
       </Grid>
 
       {
