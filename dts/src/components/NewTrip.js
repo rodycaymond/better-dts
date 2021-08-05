@@ -1,4 +1,5 @@
-import React, { useState, useHistory } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 
@@ -10,7 +11,8 @@ function NewTrip ({setTripData}) {
   const [returnDate, setReturnDate] = useState('');
 //useState above is using hooks to hold information
   
-  
+  const history = useHistory();
+
   function handleClick(event){
     event.preventDefault()
     //the preventDefault prevents refresh upon click
@@ -21,6 +23,7 @@ function NewTrip ({setTripData}) {
     returnDate: returnDate
     };
     setTripData(tripData);
+    history.push('/Trip');
   }
     
   return (
