@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-const API_KEY = 'srQGRtICj2lmL14d6uNtthm1Sez7Fi2U';
 //functioning fetch api: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}%20{state}%20/{yyyy-m-d}/{yyyy-m-d}?unitGroup=us&key=SAARCEGA28N3C8YA7B2GYL45A
 
 class Weather extends React.Component {
