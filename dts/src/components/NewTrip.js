@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 
 
 function NewTrip ({setTripData}) {
@@ -39,7 +40,7 @@ function NewTrip ({setTripData}) {
   }
 
   return (
-    <div className="form-wrapper">
+    <Card className="form-wrapper">
       <form className='NewTripForm'>
         <TextField required variant='outlined' type='text' id='depLoc' label='Trip Name' value={tripName} onChange={(event) => setTripName(event.target.value)}/>
         <br/><br/>
@@ -53,9 +54,9 @@ function NewTrip ({setTripData}) {
         <TextField required variant='outlined' type='text' id='depLoc' label='Destination Airport' value={destAirport} onChange={(event) => setDestAirport(event.target.value)}/>
         <TextField required variant='outlined' InputLabelProps={{shrink: true}} type='date' id='depLoc' label='Return Date' value={returnDate} onChange={(event) => setReturnDate(event.target.value)}/>
         <br/><br/>
-        <button type='submit' onClick={(event) => handleClick(event)}>Submit</button>
+        <button style={{backgroundColor: 'rgb(63,81,181)', border: '1px solid rgb(63,81,181)', borderRadius: '5px', color: 'white', padding: '5px 10px', cursor: 'pointer'}} type='submit' onClick={(event) => handleClick(event)}>Submit</button>
       </form>
-    </div>
+    </Card>
   )
 }
 export default NewTrip;

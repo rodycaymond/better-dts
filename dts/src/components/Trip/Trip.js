@@ -36,11 +36,11 @@ function Trip ({tripData}) {
   }
 
   return (
-    <div>
+    <div className="trip-card">
       <h2>{tripData.tripName}</h2>
       <Flights quotes={quotesData}/>
       <Weather tripData={tripData}/>
-      <Covid/>
+      <Covid tripData={tripData}/>
     </div>
   )
 }

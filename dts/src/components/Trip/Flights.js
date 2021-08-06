@@ -81,17 +81,29 @@ function Flights ({quotes}) {
       )
     }
   }
-
+  let style = {
+    backgroundColor: 'rgb(63,81,181)',
+    color: 'white',
+    fontWeight: 'bold'
+  };
+  let newStyle = {
+    fontSize: '1.5em',
+    padding: '4px 0px',
+    fontWeight: 'bold',
+    backgroundColor: 'rgb(63,81,181)',
+    color: 'white',
+    marginBottom: 4
+  }
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} sm={12}>
-        <Paper>Flight Options</Paper>
+    <Grid style={{backgroundColor: 'white', width: '100%', margin: 'auto', borderRadius: 5}}container spacing={3} >
+      <Grid item xs={12} sm={12} style={{padding: '0px 0px 12px 0px'}}>
+        <Paper style={newStyle}>Flight Options</Paper>
       </Grid>
-      <Grid container>
-        <Grid item xs={12} sm={3}><Paper>Carrier</Paper></Grid>
-        <Grid item xs={12} sm={3}><Paper>Price USD</Paper></Grid>
-        <Grid item xs={12} sm={3}><Paper>Departure</Paper></Grid>
-        <Grid item xs={12} sm={3}><Paper>Destination</Paper></Grid>
+      <Grid container style={{padding: '0px 12px'}}>
+        <Grid item xs={12} sm={3}><Paper style={style}>Carrier</Paper></Grid>
+        <Grid item xs={12} sm={3}><Paper style={style}>Price USD</Paper></Grid>
+        <Grid item xs={12} sm={3}><Paper style={style}>Departure</Paper></Grid>
+        <Grid item xs={12} sm={3}><Paper style={style}>Destination</Paper></Grid>
       </Grid>
 
       {

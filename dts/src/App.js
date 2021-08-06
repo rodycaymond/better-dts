@@ -39,8 +39,8 @@ function App() {
 
   const useStyles = makeStyles({
     appbar:{display: 'flex', position: 'static', padding: '10px 0px',  justifyContent: 'space-around', flexDirection: 'row'},
-    button: {width: '40%', border: 'black', background:'orange', textDecoration: 'none'},
-    title: {width: '40%', padding: '10px', color: 'whitesmoke', backgroundColor: 'rgba(63,81,181,0)', boxShadow: '0 0 0'}
+    button: {width: 'fit-content', border: 'black', background:'orange', textDecoration: 'none'},
+    title: {width: '40%', padding: '10px', color: 'whitesmoke', backgroundColor: 'rgba(63,81,181,0)', boxShadow: '0 0 0', fontWeight: 'bold', fontSize: '1.5em'}
   })
   // lines above in useStyles create an object to be invoked by the classes variable below. the object keys are placed in the rendering of the html/jsx tags below to apply the styling
   const classes = useStyles();
@@ -51,12 +51,12 @@ function App() {
   return (
       <div className="App">
         <AppBar className={classes.appbar}>
-            <Card className={classes.title}>Better DTS</Card>
-            <Link to='/newTrip'>
+            <Card className={classes.title}>Trip Planner</Card>
+            <Link to='/newTrip' style={{textDecoration: 'none'}}>
               <Button className={classes.button}>New Trip</Button>
             </Link>
-            <Link to='/'>
-              <Button className={classes.button}>Home</Button>
+            <Link to='/' style={{textDecoration: 'none'}}>
+              <Button className={classes.button} >Home</Button>
             </Link>
         </AppBar>
         <div>

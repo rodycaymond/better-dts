@@ -10,10 +10,10 @@ function PreviousTrips ({previousTrips}) {
     )
   } else {
     return (
-      <Grid container justifyContent='space-between'>
-        <Grid item xs={12} sm={3}>Trip Name</Grid>
-        <Grid item xs={12} sm={3}>Start Date</Grid>
-        <Grid item xs={12} sm={3}>Return Date</Grid>
+      <Grid style={{backgroundColor: 'white', width: '100%', margin: 'auto', borderRadius: 5}}container spacing={3} >
+        <Grid item xs={12} sm={4}><Paper>Trip Name</Paper></Grid>
+        <Grid item xs={12} sm={4}><Paper>Start Date</Paper></Grid>
+        <Grid item xs={12} sm={4}><Paper>Return Date</Paper></Grid>
         <PrevTrip prevTrips={previousTrips}/>
       </Grid>
     )
@@ -26,11 +26,11 @@ function PrevTrip ({prevTrips}) {
     return prevTrips.map(trip => {
      if (trip) {
        return (
-        <Grid container justifyContent='space-between'>
-          <Grid item xs={12} sm={3}>{trip.tripName}</Grid>
-          <Grid item xs={12} sm={3}>{trip.depDate}</Grid>
-          <Grid item xs={12} sm={3}>{trip.returnDate}</Grid>
-        </Grid>
+          <Grid container>
+            <Grid item xs={12} sm={4}><Paper>{trip.tripName}</Paper></Grid>
+            <Grid item xs={12} sm={4}><Paper>{trip.depDate}</Paper></Grid>
+            <Grid item xs={12} sm={4}><Paper>{trip.returnDate}</Paper></Grid>
+          </Grid>
        )
     }
   })

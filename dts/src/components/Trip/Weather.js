@@ -47,7 +47,7 @@ class Weather extends React.Component {
 
     return (
       <div className="weather-container">
-        <h2 className="box">Weather</h2>
+        <h2 >Weather</h2>
         <div className="flex-weathercards">
           {listOfWeatherCards}
         </div>
@@ -66,6 +66,13 @@ function WeatherCard (props){
     imgSrc = "https://www.visualcrossing.com/weather/weatherdataservices/images/icons2/"+"skycover00"+".svg";
   } else if (props.info.icon === 'rain'){
     imgSrc = "https://www.visualcrossing.com/weather/weatherdataservices/images/icons2/"+"precip"+".svg";
+  } else if(props.info.icon === 'overcast'){
+    //trying to include overcast in coding to catch the partly_cloudy image ... may not be right string for icon
+    imgSrc = "https://www.visualcrossing.com/weather/weatherdataservices/images/icons2/"+"skycover50"+".svg";
+  }
+  else {
+    //catching overcast to give it the partly_cloudy image ... can be improved. may be catching thunderstorms or snow inappropriately
+    imgSrc = "https://www.visualcrossing.com/weather/weatherdataservices/images/icons2/"+"skycover50"+".svg";
   }
   return (
     <div className="box icon">

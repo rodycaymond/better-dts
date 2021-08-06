@@ -1,34 +1,53 @@
 .App {
   text-align: center;
+  background-color: orange;
+  height: 100vh;
+  /* vh allows height of App to take up 100 percent of window/screen */
 }
 .appbar {
   display: flex;
   justify-content: space-around;
 }
 .form-wrapper {
-  margin-top: 48px;
+  margin: 48px;
+  padding: 12px;
 }
 .weather-container {
-  width: 90%;
+  width: 100%;
   margin: auto;
   margin-top: 24px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px grey;
+  background-color: white;
   /* margin auto makes it so both sides have the same margin, requires width specification  */
 }
 .weather-container h2 {
   /* space means nesting (h2 of .weather-container) comma means chaining (h2 , x = h2 + x) */
   margin-bottom: 10px;
+  background-color: rgb(63,81,181);
+  padding: 4px 0px;
+  color: white;
 }
 .flex-weathercards {
   display: flex;
   overflow-x: scroll;
 }
-.box {
-  border: 1px solid black;
-  /* 3 param: border thickness / style of border / color (no commas)  */
-}
+
 .box.icon {
   /* styles class of box icon */
   min-width: 175px;
   height: auto;
   margin: auto;
+
+}
+.trip-card {
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+}
+.covid {
+  margin: 24px 0px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 0 5px grey;
 }
