@@ -21,6 +21,9 @@ To install must have
   - React
   - React Material UI
   - React Router
+ 
+> 1. cd dts 
+> 2. npm install
 
 Must have 3 API Keys from 
 
