@@ -6,6 +6,11 @@ Better DTS/Trip Planner helps you make informed decisens on travel.
 
 ## Table of Contents
 
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Team Members](#team-members)
+4. [Roadmap](#roadmap)
+
 ## Description 
 
 Better DTS/Trip planner accepts inputs from the user while creating a new trip. 
